@@ -37,5 +37,14 @@ gridItems.forEach(item => {
     })
 })
 
-// remove the class
+// remove the class 
 const resetBtn = document.getElementById('reset');
+
+// add click event to reset button
+resetBtn.addEventListener('click', function() {
+    // for each item remove the orange class to remove the background
+    gridItems.forEach(item => {
+        item.classList.remove('orange');
+    })
+})
+
