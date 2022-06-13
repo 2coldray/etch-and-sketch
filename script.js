@@ -48,3 +48,37 @@ resetBtn.addEventListener('click', function() {
     })
 })
 
+// bring in new grid button
+const newGridBtn = document.getElementById('new-grid');
+
+// prompt the user on click
+newGridBtn.addEventListener('click', function() {
+    // ask user for his number for new grid
+    const userGridOption = prompt('Enter a Number between 1 and 100');
+    const newResetBtn = document.getElementById('reset');
+    const rows = userGridOption;
+    const columns = userGridOption;
+    console.log(userGridOption);
+
+    // remove the current grid from the container
+    gridContainer.replaceChildren();
+
+    // make new grid appear
+    makeRows(rows, columns);
+
+    // add mouse enter event for new grid items
+    const newGridItems = document.querySelectorAll('.grid-item');
+    newGridItems.forEach(item => {
+        item.addEventListener('mouseenter', function (e) {
+            // change the background color to orange 
+            e.target.classList.add('orange');
+        })
+    })
+
+    // add reset btn
+    newResetBtn.addEventListener('click', function() {
+        newGridItems.forEach(item => {
+            item.classList.remove('orange');
+        })
+    })
+})
